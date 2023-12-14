@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tạo sản phẩm mới</title>
+    <!-- Thêm thư viện jQuery (nếu chưa có) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Tạo sản phẩm mới</h1>
+    <form id="createProductForm">
+        <label for="productName">Tên sản phẩm:</label>
+        <input type="text" id="productName" name="productName" required><br>
+        
+        <label for="productDescription">Mô tả:</label>
+        <textarea id="productDescription" name="productDescription" required></textarea><br>
+        
+        <label for="productPrice">Giá:</label>
+        <input type="number" id="productPrice" name="productPrice" required><br>
+        
+        <!-- Thêm các trường thông tin khác của sản phẩm tại đây -->
+
+        <input type="submit" value="Tạo sản phẩm">
+    </form>
+
+    <!-- JavaScript để xử lý yêu cầu AJAX -->
+    <script>
+        $(document).ready(function() {
+            $('#createProductForm').submit(function(event) {
+                event.preventDefault(); // Ngăn chặn form submit mặc định
+
+                // Lấy dữ liệu từ form
+                var formData = {
+                    productName: $('#productName').val(),
+                    productDescription: $('#productDescription').val(),
+                    productPrice: $('#productPrice').val(),
+                    // Thêm các trường thông tin khác của sản phẩm tại đây
+                };
+
+                // Gửi yêu cầu POST bằng Ajax
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: 'http://localhost:4202/product/new',
+                    data: JSON.stringify(formData),
+                    success: function(response) {
+                        // Xử lý khi yêu cầu thành công
+                        console.log('Sản phẩm mới đã được tạo:', response);
+                        // Thực hiện các hành động cần thiết sau khi tạo sản phẩm
+                    },
+                    error: function(error) {
+                        // Xử lý khi có lỗi xảy ra
+                        console.error('Lỗi:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

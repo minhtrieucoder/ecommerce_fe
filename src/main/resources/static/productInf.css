@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&family=Mulish:wght@300&family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+}
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10%;
+    height: 100vh;
+    padding: 0 1.7rem;
+    background-color: #E8A9A9;
+    color:aliceblue;
+    font-weight: 500;
+}
+.card--container{
+    padding: 2rem;
+    justify-content: space-between;
+}
+.finding--card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color:rgb(228, 253, 220) ;
+    padding: 10px 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+
+}
+.cardId{
+    background: rgb(237,237,237);
+    border-radius: 5px;
+    color: rbga(113,99,186,255);
+    align-items: center;
+    gap:5px;
+    padding: 4px 100px;
+    border: 1px solid;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+}
+.search_or_filter{
+    background: rgb(213, 185, 240);
+    border-radius: 5px;
+    color: rbga(113,99,186,255);
+    align-items: center;
+    gap:5px;
+    padding: 4px 30px;
+    border: 1px solid;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1rem;
+    position: fixed;
+    right: 30px;
+    top: 105px;
+}
+.search_or_filter button{
+    background: transparent;
+    font-weight: 800;
+}
+.cardId input{
+    background: transparent;
+    padding: 10px;
+}
+
+.search_or_filter input{
+    background: transparent;
+    padding: 10px;
+}
+
+.table--wrapper{
+    background-color:rgb(228, 253, 220) ;
+    padding: 10px 2rem;
+    border-radius: 10px;
+    margin-top: 10rem;
+}
+
+.table--container{
+    width: 100%
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background:#eb9e80d2;
+}
+
+th{
+    padding: 15px;
+    text-align: center;
+
+}
+tbody{
+    background: #f2f2f2;
+}
+td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 1000;
+    text-align: left;
+    padding: 4px 15px;
+    border-bottom: 1px solid black ;
+}
+tr:nth-child(even){
+    background: #fff;
+    
+}
+
+.table--container button{ 
+    color:black;
+    background: none;
+    cursor: pointer;
+    font-weight: 800;
+    margin: 0 3px;
+    border: 1px solid #333;
+    padding: 3px;
+    width: 30px;
+}

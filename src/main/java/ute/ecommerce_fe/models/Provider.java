@@ -7,10 +7,15 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Provider {
     private Long id;
 
-    private String categoryName;
+    private String providerName;
+
+
+    private String providerAddress;
+
+    private String providerPhoneNumber;
 
     public void setId(Long id) {
         this.id = id;
@@ -20,6 +25,6 @@ public class Category {
         return id;
     }
 
-    // @OneToMany(mappedBy = "category")
+    // @OneToMany(mappedBy = "provider")
     // private Collection<Product> products;
 }

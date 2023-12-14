@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&family=Mulish:wght@300&family=Poppins:wght@200&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+}
+.sidebar{
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    height: 100vh;
+    padding: 0 1.7rem;
+    background-color: #E8A9A9;
+    color:aliceblue;
+    font-weight: 500;
+}
+.card--container{
+    width:100%;
+    padding: 1rem;
+}
+.card--wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color:rgb(228, 253, 220) ;
+    padding: 10px 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.main--title{
+    color:black;
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+.payment--card{
+    background: #e49090;
+    border-radius: 10px;
+    padding: 1.2rem;
+    width: 290px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.5s ease-in-out;
+}
+
+.payment--card:hover{
+    transform: translateY(-5px);
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.amount{
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.amount--value{
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.light-blue{
+    background: rgb(177, 220, 255);
+}
+.light-red{
+    background: rgb(247, 188, 188);
+}
+.light-purple{
+    background: rgb(229, 188, 245);
+}
+.light-green{
+    background: rgb(206, 250, 210);
+}
+.light-orange{
+    background: rgb(247, 198, 169);
+}
+/* don hang dang xu ly */
+.table--wrapper{
+    background-color:rgb(228, 253, 220) ;
+    padding: 10px 2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.table--container{
+    width: 100%
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead{
+    background:#31a131;
+}
+
+th{
+    padding: 15px;
+    text-align: center;
+
+}
+tbody{
+    background: #f2f2f2;
+}
+td{
+    padding: 15px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 800;
+    text-align: center;
+}
+tr:nth-child(even){
+    background: #fff;
+}
+
+.table--container button{ 
+    color:tomato;
+    background: none;
+    cursor: pointer;
+    font-weight: 800;
+}

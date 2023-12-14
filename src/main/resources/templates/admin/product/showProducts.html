@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Providers</title>
+</head>
+<body>
+<h1>Providers</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone Number</th>
+    </tr>
+    <tr th:each="provider : ${providers}">
+        <td th:text="${provider.id}"></td>
+        <td th:text="${provider.providerName}"></td>
+        <td th:text="${provider.providerAddress}"></td>
+        <td th:text="${provider.providerPhoneNumber}"></td>
+    </tr>
+</table>
+</body>
+</html>
