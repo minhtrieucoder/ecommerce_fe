@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/productInf.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="sidebar">
+        <span>sidebar</span>
+    </div>
+    <div class="card--container">
+        <div class="finding--card">
+            <div class="cardId">
+                <input type="text" placeholder="Tên sản phẩm"/>
+            </div>
+    
+            <div class="cardId">
+                <input type="text" placeholder="Nhà cung cấp"/>
+            </div>
+
+            <div class="cardId">
+                <input type="text" placeholder="Danh mục"/>
+            </div>
+
+
+            <div class="cardId">
+                <input type="text" list ="store" placeholder="Kho"/>
+                <datalist id="store">
+                    <option value = "Còn hàng trong kho">
+                    <option value = "Hết hàng trong kho">
+                </datalist>
+            </div>
+
+
+            <div class="search_or_filter">
+                <button>
+                Tìm kiếm
+                </button>
+            </div>
+        </div>
+        <div class="table--wrapper">
+            <div class="table--container">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Kho</th>
+                            <th>Hạn sử dụng</th>
+                            <th>Nhà cung cấp</th>
+                            <th>Đơn giá</th>
+                            <th>Danh mục</th>
+                            <th>Action</th>
+                        </tr>
+                        <tbody>
+                            <th:block th:each="product : ${all}">
+                            <tr>
+                                <td>[[${product.id}]]</td>
+                                <td>[[${product.productName}]]</td>
+                                <td> [[${product.productDescription}]] </td>
+                                <td>[[${product.productPrice}]]</td>
+                                <td>[[${product.productImage}]]</td>
+                                <td>[[${product.productQuantity}]]</td>
+                                <td>[[${product.category}]]</td>
+                                <td> <a href="prodetail.html"><button> <i class="fa-regular fa-eye"></i> </button> </a>
+                                    <a href="proupdate.html"> <button> <i class="fa-regular fa-pen-to-square"></i></button></a>
+                                <a href="prodelete.html"> <button> <i class="fa-regular fa-trash-can"></i></button></a>
+                                </td>
+                            </tr>
+                        </th:block>
+                        </tbody>
+
+                    </thead>
+                </table>
+            </div>
+        </div>
+        
+</body>
+</html>
