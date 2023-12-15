@@ -7,8 +7,11 @@
 <h1>Update Provider</h1>
 <form th:action="@{/providers/update}" th:object="${provider}" method="post">
     <!-- Hidden input field for the provider ID -->
-    <input type="hidden" th:field="*{id}" />
 
+    <div>
+        <label>Mã nhà cung cấp: </label>
+        <input type="text" th:field="*{id}" />
+    </div>
     <div>
         <label>Name: </label>
         <input type="text" th:field="*{providerName}" />

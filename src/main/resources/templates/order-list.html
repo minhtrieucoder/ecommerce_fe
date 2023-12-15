@@ -59,9 +59,16 @@
     <section class="sidebar">
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-
             <li>
-                <a th:href="@{/admin/category}">
+                <a th:href="@{/home}">
+                    <i class="fa fa-th"></i> <span>Dashboard</span>
+                    <span class="pull-right-container">
+<!--                <small class="label pull-right bg-green">check</small>-->
+              </span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/providers}">
                     <i class="fa fa-th"></i> <span>Quản lý Nhà cung cấp </span>
                     <span class="pull-right-container">
 <!--                <small class="label pull-right bg-green">check</small>-->
@@ -82,14 +89,21 @@
             <!--          </ul>-->
             <!--        </li>-->
             <li>
-                <a th:href="@{/admin/category}">
+                <a th:href="@{/categories}">
                     <i class="fa fa-th"></i> <span>Danh mục sản phẩm </span>
                     <span class="pull-right-container">
-<!--                <small class="label pull-right bg-green">check</small>-->
+<!--                <small class="label pull-right bg-green"></small>-->
               </span>
                 </a>
             </li>
-
+            <li>
+                <a th:href="@{/products}">
+                    <i class="fa fa-th"></i> <span>Quản lý sản phẩm</span>
+                    <span class="pull-right-container">
+<!--                <small class="label pull-right bg-green">Hot</small>-->
+              </span>
+                </a>
+            </li>
             <li>
                 <a href="http://localhost:8080/orders">
                     <i class="fa fa-th"></i> <span>Đơn hàng</span>
@@ -103,12 +117,15 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+
+
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Quản lý danh mục
+            Provider Information
 
         </h1>
         <ol class="breadcrumb">
@@ -122,36 +139,71 @@
     <section class="content">
 
         <!-- Default box -->
-        <div class="col-md-8">
-            <!-- general form elements -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Thêm mới</h3>
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <!--                    # o day la add-->
+                    <a class="btn btn-success" href="http://localhost:8080/providers/new" >+Thêm mới Menu</a>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 200px;">
+                            <input type="text" name="table_search" class="form-control pull-right"
+                                   placeholder="Search">
+
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form" th:action="@{/categories/new}" th:object="${category}" method="post">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Id danh mục</label>
-                            <input type="text" th:field="*{id}">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Tên danh mục</label>
-                            <input type="text" th:field="*{categoryName}">
-                        </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Trạng thái đơn hàng</th>
+                            <th>Tổng giá trị đơn hàng</th>
+                            <th>Ngày đặt hàng</th>
+                            <th>Tài khoản đặt hàng</th>
+                            <th>Tên người đặt</th>
+                            <th>SDT đặt hàng</th>
+                            <th>Mã người nhận</th>
+                            <th>Tên người nhận</th>
+                            <th>SDT người nhận</th>
+                            <th>Địa chỉ nhận</th>
 
-                    </div>
-                    <!-- /.box-body -->
+                        </tr>
+                        <tr>
+                        <tr th:each="order : ${orders}">
+                            <td th:text="${order.id}"></td>
+                            <td th:text="${order.orderState}"></td>
+                            <td th:text="${order.totalAmount}"></td>
+                            <td th:text="${order.orderDate}"></td>
+                            <td th:text="${order.user}"></td>
+                            <td th:text="${order.orderer.ordererName}"></td>
+                            <td th:text="${order.orderer.ordererPhoneNumber}"></td>
+                            <td th:text="${order.receiver.id}"></td>
+                            <td th:text="${order.receiver.receiverName}"></td>
+                            <td th:text="${order.receiver.receiverPhoneNumber}"></td>
+                            <td th:text="${order.receiver.receiverAddress}"></td>
 
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Thêm mới</button>
-                    </div>
-                </form>
+                        </tr>
+                        <td>
+                            <!--                                # o day la edit-->
+                            <!--                            th:href="@{/providers/update" + ${provider.id}-->
+                            <a class="btn btn-success" href="http://localhost:8080/providers/update" >Sửa</a>
+                            <a href="" class="btn btn-danger">Xóa</a>
+
+                        </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
             </div>
-
             <!-- /.box -->
-
         </div>
         <!-- /.box -->
 
@@ -164,7 +216,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 0.0.1
     </div>
-    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">Mỹ phẩm</a>.</strong>
+    <strong>Ecommerce Skincare <a href="https://adminlte.io">Mỹ phẩm</a>.</strong>
 </footer>
 
 </div>
